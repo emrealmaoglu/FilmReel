@@ -45,6 +45,8 @@ log/
 *.json
 *.db
 *.sqlite3
+data/tmdb_5000_credits.csv
+data/tmdb_5000_movies.csv
 
 # Önbellek
 .cache/
