@@ -1,0 +1,17 @@
+# Temel kütüphaneler
+numpy==1.26.4
+pandas==2.2.1
+scikit-learn==1.4.1.post1
+
+# Web uygulaması
+streamlit==1.32.2
+
+# Veri işleme ve öneri sistemi
+scikit-surprise==1.1.4
+googletrans==3.1.0a0
+
+# API ve HTTP istekleri
+requests==2.31.0
+python-dotenv==1.0.1
+
+pytest>=6.2.5 
