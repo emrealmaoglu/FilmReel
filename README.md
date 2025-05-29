@@ -99,4 +99,56 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICE
 
 Emre Almaoğlu - [@emrealmaoglu](https://github.com/emrealmaoglu)
 
-Proje Linki: [https://github.com/emrealmaoglu/FilmReel](https://github.com/emrealmaoglu/FilmReel) 
+Proje Linki: [https://github.com/emrealmaoglu/FilmReel](https://github.com/emrealmaoglu/FilmReel)
+
+## Güvenlik Kurulumu
+
+### 1. Ortam Değişkenleri
+
+1. `.env.example` dosyasını `.env` olarak kopyalayın:
+   ```bash
+   cp .env.example .env
+   ```
+
+2. `.env` dosyasındaki değerleri kendi yapılandırmanızla güncelleyin:
+   - `TMDB_API_KEY`: TMDB API anahtarınız
+   - `DEBUG`: Hata ayıklama modu (True/False)
+   - `LOG_LEVEL`: Günlük kayıt seviyesi (INFO/DEBUG/WARNING/ERROR)
+
+### 2. Güvenlik Önlemleri
+
+- `.env` dosyasını asla git deposuna eklemeyin
+- API anahtarlarını düzenli olarak değiştirin
+- Üretim ortamında farklı API anahtarları kullanın
+- Hassas bilgileri kod içinde saklamayın
+- Tüm API isteklerini HTTPS üzerinden yapın
+
+### 3. Hata Ayıklama
+
+Hata ayıklama modunu etkinleştirmek için:
+```bash
+export DEBUG=True
+```
+
+## Kullanım
+
+1. Ana sayfada beğendiğiniz bir filmi seçin
+2. Sistem size benzer 5 film önerecektir
+3. Her film için detaylı bilgi ve özet görüntüleyebilirsiniz
+
+## Güvenlik İpuçları
+
+1. API Anahtarı Yönetimi:
+   - API anahtarlarını düzenli olarak değiştirin
+   - Farklı ortamlar için farklı anahtarlar kullanın
+   - Anahtarları güvenli bir şekilde saklayın
+
+2. Hata Yönetimi:
+   - Tüm hataları uygun şekilde yakalayın
+   - Hassas bilgileri loglarda göstermeyin
+   - Kullanıcı dostu hata mesajları kullanın
+
+3. Veri Güvenliği:
+   - Tüm API isteklerini HTTPS üzerinden yapın
+   - Kullanıcı verilerini güvenli bir şekilde saklayın
+   - Düzenli güvenlik denetimleri yapın 
