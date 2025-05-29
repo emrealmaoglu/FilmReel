@@ -254,6 +254,7 @@ class Recommender:
         """
         Recommender sınıfının başlatıcı metodu.
         """
+        self.logger = logging.getLogger(__name__)
         self.tmdb_token = os.getenv('TMDB_API_KEY')
         if not self.tmdb_token:
             raise ValueError("TMDB_API_KEY ortam değişkeni bulunamadı")
