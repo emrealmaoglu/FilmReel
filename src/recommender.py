@@ -14,6 +14,7 @@ from sklearn.metrics.pairwise import linear_kernel, cosine_similarity
 from surprise import Reader, Dataset, SVD
 import ast
 
+# Ortam değişkenlerini yükle
 load_dotenv()
 
 logging.basicConfig(level=logging.INFO)
@@ -22,12 +23,16 @@ logger = logging.getLogger(__name__)
 class MovieRecommender:
     def __init__(self, movies_path: str, credits_path: str, ratings_path: str = None):
         """
-        Initialize the MovieRecommender with movie and credit data.
+        Film önerici sınıfını başlat.
         
-        Args:
-            movies_path (str): Path to the movies CSV file
-            credits_path (str): Path to the credits CSV file
-            ratings_path (str, optional): Path to the ratings CSV file for collaborative filtering
+        Parametreler
+        -----------
+        movies_path : str
+            Film CSV dosyasının yolu
+        credits_path : str
+            Kredi CSV dosyasının yolu
+        ratings_path : str, optional
+            İşbirlikçi filtreleme için puanlama CSV dosyasının yolu
         """
         self.movies_df = None
         self.credits_df = None
@@ -42,7 +47,7 @@ class MovieRecommender:
             self._preprocess_data()
             self._build_similarity_matrices()
         except Exception as e:
-            logger.error(f"Error initializing MovieRecommender: {str(e)}")
+            logger.error(f"Film önerici başlatma hatası: {str(e)}")
             raise
 
     def _load_data(self, movies_path: str, credits_path: str, ratings_path: str = None):
@@ -235,12 +240,12 @@ class Recommender:
     """
     Film önerilerini gerçekleştiren sınıf.
     
-    Attributes
+    Özellikler
     ----------
     logger : logging.Logger
         Loglama için logger nesnesi
     tmdb_token : str
-        TMDB Bearer Token
+        TMDB API anahtarı
     translator : Translator
         Google Translate API nesnesi
     """
@@ -249,10 +254,10 @@ class Recommender:
         """
         Recommender sınıfının başlatıcı metodu.
         """
-        self.logger = logging.getLogger(__name__)
-        self.tmdb_token = os.getenv('TMDB_TOKEN')
+        self.tmdb_token = os.getenv('TMDB_API_KEY')
         if not self.tmdb_token:
-            self.tmdb_token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMzMxMzRhM2U4MThkNDk5MWQxYWNlY2I1YjA5NTQ5OCIsIm5iZiI6MTc0ODUwNDAyMC4yMiwic3ViIjoiNjgzODBkZDQ3MDMxNWYzNDgxMmI4NDhlIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.1X_CmMWDsYTR0vPgLLP8XlR8K2z4HkYPWJR3011i0qU"
+            raise ValueError("TMDB_API_KEY ortam değişkeni bulunamadı")
+        
         self.translator = Translator()
         
     def calculate_weighted_rating(self, df: pd.DataFrame) -> pd.DataFrame:
