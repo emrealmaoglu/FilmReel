@@ -83,17 +83,6 @@ FilmReel, içerik tabanlı filtreleme yaklaşımını kullanır:
 2. Kosinüs benzerliği hesaplanır
 3. En benzer 5 film önerilir
 
-## 🤝 Katkıda Bulunma
-
-1. Bu depoyu fork edin
-2. Yeni bir özellik dalı oluşturun (`git checkout -b feature/amazing-feature`)
-3. Değişikliklerinizi commit edin (`git commit -m 'Add some amazing feature'`)
-4. Dalınıza push edin (`git push origin feature/amazing-feature`)
-5. Bir Pull Request açın
-
-## 📝 Lisans
-
-Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
 
 ## 📧 İletişim
 
